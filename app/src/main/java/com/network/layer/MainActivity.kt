@@ -23,7 +23,6 @@ class MainActivity : AppCompatActivity() {
             binding.textView2.text = model.user.email
         })
 
-
         viewModel.responseLiveData2.observe(this, {
             val model = viewModel.convertJsonStringToObject(it, LoginModel::class.java)
             binding.textView3.text = model.user.name
