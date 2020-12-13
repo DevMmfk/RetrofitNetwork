@@ -13,7 +13,7 @@ allprojects {
   implementation 'com.github.DevMmfk:RetrofitNetwork:0.0.11'
   ```
 3 - Create class extent from Application and add this class in manifests then add Network Config content base url and add add header if exist
-  ````
+  ```
   class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
@@ -30,7 +30,7 @@ allprojects {
     }
 }
 ```
-In manifests : 
+
 ```
  <application
         android:name="com.network.app.MyApp"
