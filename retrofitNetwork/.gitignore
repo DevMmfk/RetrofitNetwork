@@ -1,2 +1,5 @@
 /build
 .idea
+.idea/modules.xml
+.idea/workspace.xml
+.idea/misc.xml
