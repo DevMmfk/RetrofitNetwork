@@ -17,9 +17,9 @@ import services.vego.network.ViewDialog
 import services.vego.network.utilities.ApiServices
 import services.vego.network.utilities.ErrorResponse
 
-open class BaseNetwork(mApplication: Application, url: String) : AndroidViewModel(mApplication) {
+open class BaseNetwork(mApplication: Application) : AndroidViewModel(mApplication) {
 
-    var apiServices: ApiServices = Initialize(url).provideRetrofit()
+    var apiServices: ApiServices = Initialize().provideRetrofit()
 
     open fun showDialog(context: Context) {
         if (Constants.dialog == null) {
@@ -40,7 +40,7 @@ open class BaseNetwork(mApplication: Application, url: String) : AndroidViewMode
 
 
     fun getData(url: String, responseLiveData: MutableLiveData<String>) {
-        apiServices.getData(url).enqueue(object : Callback<ResponseBody> {
+        apiServices.getData(Constants.headers,url).enqueue(object : Callback<ResponseBody> {
             override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
                 hideDialog()
                 if (response.isSuccessful) {
@@ -57,6 +57,41 @@ open class BaseNetwork(mApplication: Application, url: String) : AndroidViewMode
         })
     }
 
+    fun getData(url: String,map: HashMap<String, String>, responseLiveData: MutableLiveData<String>) {
+        apiServices.postData(Constants.headers,url,map).enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                hideDialog()
+                if (response.isSuccessful) {
+                    responseLiveData.postValue(response.body()!!.string())
+                } else {
+                    checkErrorBody(response.errorBody())
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                hideDialog()
+                onFailureApi(t.toString(), "addDevice")
+            }
+        })
+    }
+
+    fun deleteApi(url: String, responseLiveData: MutableLiveData<String>) {
+        apiServices.deleteData(Constants.headers,url).enqueue(object : Callback<ResponseBody> {
+            override fun onResponse(call: Call<ResponseBody>, response: Response<ResponseBody>) {
+                hideDialog()
+                if (response.isSuccessful) {
+                    responseLiveData.postValue(response.body()!!.string())
+                } else {
+                    checkErrorBody(response.errorBody())
+                }
+            }
+
+            override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
+                hideDialog()
+                onFailureApi(t.toString(), "addDevice")
+            }
+        })
+    }
 
 
     fun checkErrorBody(errorBody: ResponseBody?) {

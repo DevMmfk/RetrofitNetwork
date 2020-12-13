@@ -6,8 +6,8 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.ViewModelProvider
 import com.network.layer.databinding.ActivityMainBinding
-import com.network.layer.models.about.PagesModel
-import com.network.layer.models.cars.CarsModel
+import com.network.layer.models.login.LoginModel
+import com.network.layer.models.login.UserModel
 import com.network.layer.viewModel.NewViewModel
 
 class MainActivity : AppCompatActivity() {
@@ -17,24 +17,22 @@ class MainActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         binding = DataBindingUtil.setContentView(this, R.layout.activity_main)
         viewModel = ViewModelProvider(this).get(NewViewModel::class.java)
+
         viewModel.responseLiveData1.observe(this, {
-            val model = viewModel.convertJsonStringToObject(it, CarsModel::class.java)
-            binding.textView2.text = model.data[0].name
+            val model = viewModel.convertJsonStringToObject(it, UserModel::class.java)
+            binding.textView2.text = model.user.email
         })
+
 
         viewModel.responseLiveData2.observe(this, {
-            val model = viewModel.convertJsonStringToObject(it, CarsModel::class.java)
-            binding.textView3.text = model.data[0].name
-        })
-
-        viewModel.responseLiveData3.observe(this, {
-            val model = viewModel.convertJsonStringToObject(it, PagesModel::class.java)
-            binding.textView4.text = model.data.content
+            val model = viewModel.convertJsonStringToObject(it, LoginModel::class.java)
+            binding.textView3.text = model.user.name
         })
     }
 
     fun onClick(view: View) {
-        viewModel.getCars(this)
-        viewModel.getFollowingCars(this)
+        viewModel.login(this)
+        viewModel.getProfile(this)
+        viewModel.deleteP(this)
     }
 }

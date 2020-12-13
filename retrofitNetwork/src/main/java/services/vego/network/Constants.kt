@@ -3,8 +3,9 @@ package services.vego.network
 import android.app.Dialog
 
 open class Constants {
-    companion object{
+    companion object {
         var dialog: Dialog? = null
-
+        var headers = HashMap<String, String>()
+        var baseUrl = ""
     }
 }
