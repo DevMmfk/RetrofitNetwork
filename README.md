@@ -7,13 +7,13 @@ allprojects {
 			maven { url 'https://jitpack.io' }
 		}
 	}
-  ```
+```
  2 - Add the dependency:
-  ```
+```
   implementation 'com.github.DevMmfk:RetrofitNetwork:0.0.11'
-  ```
+```
 3 - Create class extent from Application and add this class in manifests then add Network Config content base url and add add header if exist
-  ```
+```
   class MyApp : Application() {
     override fun onCreate() {
         super.onCreate()
@@ -48,5 +48,5 @@ allprojects {
             </intent-filter>
         </activity>
     </application>
-    ```
+```
     
