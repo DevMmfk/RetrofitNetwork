@@ -30,6 +30,7 @@ allprojects {
     }
 }
 ```
+In manifests : 
 ```
  <application
         android:name="com.network.app.MyApp"
