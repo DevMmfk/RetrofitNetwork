@@ -1,4 +1,4 @@
-package services.vego.network.utilities
+package mmfk.dev.network.utilities
 
 data class ErrorResponse(
     val errors: String,

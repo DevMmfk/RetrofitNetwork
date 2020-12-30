@@ -1,4 +1,5 @@
-package services.vego.network.layer
+
+package mmfk.dev.network.layer
 
 import android.app.Application
 import android.content.Context
@@ -11,11 +12,11 @@ import okhttp3.ResponseBody
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
-import services.vego.network.Constants
-import services.vego.network.Initialize
-import services.vego.network.ViewDialog
-import services.vego.network.utilities.ApiServices
-import services.vego.network.utilities.ErrorResponse
+import mmfk.dev.network.Constants
+import mmfk.dev.network.Initialize
+import mmfk.dev.network.ViewDialog
+import mmfk.dev.network.utilities.ApiServices
+import mmfk.dev.network.utilities.ErrorResponse
 
 open class BaseNetwork(mApplication: Application) : AndroidViewModel(mApplication) {
 

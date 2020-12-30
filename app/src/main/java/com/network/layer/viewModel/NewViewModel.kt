@@ -3,7 +3,7 @@ package com.network.layer.viewModel
 import android.app.Application
 import android.content.Context
 import androidx.lifecycle.MutableLiveData
-import services.vego.network.layer.BaseNetwork
+import mmfk.dev.network.layer.BaseNetwork
 
 class NewViewModel(application: Application) : BaseNetwork(application) {
     var responseLiveData1 = MutableLiveData<String>()

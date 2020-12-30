@@ -1,4 +1,4 @@
-package services.vego.network.utilities
+package mmfk.dev.network.utilities
 
 import android.content.Context
 import android.net.ConnectivityManager

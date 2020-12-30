@@ -1,7 +1,7 @@
 package com.network.app
 
 import android.app.Application
-import services.vego.network.Initialize
+import mmfk.dev.network.Initialize
 
 class MyApp : Application() {
     override fun onCreate() {

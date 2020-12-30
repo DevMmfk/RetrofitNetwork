@@ -1,13 +1,12 @@
-package services.vego.network
+package mmfk.dev.network
 
 import com.google.gson.Gson
-import okhttp3.Headers
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
 import okhttp3.logging.HttpLoggingInterceptor
 import retrofit2.Retrofit
 import retrofit2.converter.gson.GsonConverterFactory
-import services.vego.network.utilities.ApiServices
+import mmfk.dev.network.utilities.ApiServices
 import java.util.concurrent.TimeUnit
 
 open class Initialize() {

@@ -1,4 +1,4 @@
-package services.vego.network.layer
+package mmfk.dev.network.layer
 
 import androidx.test.platform.app.InstrumentationRegistry
 import androidx.test.ext.junit.runners.AndroidJUnit4

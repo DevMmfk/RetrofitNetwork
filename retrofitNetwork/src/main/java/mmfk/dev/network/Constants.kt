@@ -1,4 +1,4 @@
-package services.vego.network
+package mmfk.dev.network
 
 import android.app.Dialog
 
