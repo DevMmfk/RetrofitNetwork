@@ -52,7 +52,7 @@ open class BaseNetwork(mApplication: Application) : AndroidViewModel(mApplicatio
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 hideDialog()
-                onFailureApi(t.toString(), "addDevice")
+                onFailureApi(t.toString())
             }
         })
     }
@@ -70,7 +70,7 @@ open class BaseNetwork(mApplication: Application) : AndroidViewModel(mApplicatio
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 hideDialog()
-                onFailureApi(t.toString(), "addDevice")
+                onFailureApi(t.toString())
             }
         })
     }
@@ -88,7 +88,7 @@ open class BaseNetwork(mApplication: Application) : AndroidViewModel(mApplicatio
 
             override fun onFailure(call: Call<ResponseBody>, t: Throwable) {
                 hideDialog()
-                onFailureApi(t.toString(), "addDevice")
+                onFailureApi(t.toString())
             }
         })
     }
@@ -106,7 +106,7 @@ open class BaseNetwork(mApplication: Application) : AndroidViewModel(mApplicatio
     }
 
 
-    fun onFailureApi(error: String, messageLog: String) {
+    fun onFailureApi(error: String) {
         Log.e("Network Lib", error)
     }
 
